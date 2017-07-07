@@ -1,8 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { createStore } from 'redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const defaultState = { checked: false };
+const reducer = function (state = defaultState, action) {
+  switch (action.type) {
+    case 'TOGGLE':
+      return { ...state, checked: !state.checked };
+  }
+return state;
+};
+
+const store = createStore(reducer);
+
+class App extends React.Component {
+  render() {
+    return (
+      <h1>Hello, React</h1>
+    );
+  }
+}
+
+ReactDOM.render((
+  <App />
+), document.getElementById('root')); 
