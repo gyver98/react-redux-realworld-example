@@ -1,4 +1,5 @@
 import React from 'react';
+import ArticlePreview from './ArticlePreview';
 
 const ArticleList = props => {
   if (!props.articles) {
@@ -8,7 +9,7 @@ const ArticleList = props => {
   }
   if (props.articles.length === 0) {
     return (
-      <div.className="article-preview">
+      <div className="article-preview">
         No articles are here yet
       </div>
     );
@@ -19,7 +20,7 @@ const ArticleList = props => {
       {
         props.articles.map(article => {
           return (
-            <h2>{article.title}</h2>
+            <ArticlePreview article={article} key={article.slug} />
           );
         })
       }
